@@ -8,14 +8,16 @@ buildscript {
     ext.serialization_version = '0.20.0'
 
     repositories {
+        maven {
+            url "https://maven.aliyun.com/repository/public/"
+        }
         mavenCentral()
-        jcenter()
+        // jcenter()
         maven {
             url "http://dl.bintray.com/kotlin/kotlin-dev"
         }
         maven {
             url "http://dl.bintray.com/kotlin/kotlin-eap-1.1"
-
         }
     }
     dependencies {
@@ -44,8 +46,11 @@ kotlin {
 }
 
 repositories {
+    maven {
+        url "https://maven.aliyun.com/repository/public/"
+    }
     mavenCentral()
-    jcenter()
+    // jcenter()
 }
 
 compileKotlin2Js {
