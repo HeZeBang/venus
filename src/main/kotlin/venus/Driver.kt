@@ -780,7 +780,6 @@ external val document: Document
             val address = userStringToLong(addrvalue) + byteOffset
             val value = userStringToInt(newValue) and 0xFF
             sim.storeByte(address, value)
-            return Renderer.displayByteAsString(value)
         } catch (e: Throwable) {
             handleError("updateMemoryLocation", e, true)
         }
