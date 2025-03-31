@@ -769,6 +769,23 @@ external val document: Document
         }
     }
 
+    @JsName("updateMemoryLocation") fun updateMemoryLocation(addrvalue: String, byteOffset: Int, newValue: String) {
+        try {
+            // val tr = e.parentElement!!
+            // val addressNode = tr.children[0]!!
+            // val addrvalue = addressNode.innerHTML
+            if (addrvalue.contains("-")) {
+                return
+            }
+            val address = userStringToLong(addrvalue) + byteOffset
+            val value = userStringToInt(newValue) and 0xFF
+            sim.storeByte(address, value)
+            return Renderer.displayByteAsString(value)
+        } catch (e: Throwable) {
+            handleError("updateMemoryLocation", e, true)
+        }
+    }
+
     fun getInstructionDump(): String {
         val sb = StringBuilder()
         for (i in 0 until sim.linkedProgram.prog.insts.size) {
