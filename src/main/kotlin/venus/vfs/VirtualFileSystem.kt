@@ -276,7 +276,7 @@ import kotlin.browser.window
                 }
                 next
             } else {
-                if (p.matches("[a-z]:")) { // Drive Name
+                if (p.matches("[a-zA-Z]:")) { // Drive Name
                     val drive = VFSDrive(p, curloc)
                     curloc.addChild(drive)
                     drive
